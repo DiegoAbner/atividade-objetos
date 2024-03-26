@@ -1,4 +1,5 @@
 const prompt = require('prompt-sync')({sigint:true});
+
 // Criei esse array para funcionar como armazenamento do carrinho
 let carrinho = [];
 
@@ -6,8 +7,8 @@ let carrinho = [];
 
 function adicionarProduto() {
     let nome = prompt("Informe o nome do produto:");
-    let preco = parseFloat(prompt("Informe o preço do produto:"));
-    let quantidade = parseInt(prompt("Informe a quantidade do produto:"));
+    let preco = parseFloat(prompt("Informe o preço do produto:"));  //utilizei o parseFloat para converter a string em numero decimal
+    let quantidade = parseInt(prompt("Informe a quantidade do produto:")); //utilizei o parseInt para converter a string em numeros inteiros
 
     // Calcula o subtotal do produto
     let subtotal = preco * quantidade;
@@ -25,7 +26,7 @@ function exibirCarrinho() {
 
     // Itera sobre os produtos no carrinho
     carrinho.forEach(produto => {
-        mensagem += `Nome: ${produto.nome}\n`;
+        mensagem += `\nNome: ${produto.nome}\n`;
         mensagem += `Preço unitário: R$ ${produto.preco.toFixed(2)}\n`;
         mensagem += `Subtotal: R$ ${produto.subtotal.toFixed(2)}\n`;
     });
@@ -41,7 +42,7 @@ function exibirCarrinho() {
 //PRIMEIRA TELA - Função principal para interação com o usuário
 function main() {
     while (true) {
-        let opcao = prompt("Escolha uma opção:\n1 - Adicionar produto ao carrinho\n2 - Visualizar carrinho\n3 - Finalizar compra\n4 - Sair \n");
+        let opcao = prompt("Escolha uma opção:\n1 - Adicionar produto ao carrinho\n2 - Visualizar carrinho\n3 - Finalizar compra\n4 - Sair \n==>");
 
         switch (opcao) {
             case "1":
@@ -51,10 +52,10 @@ function main() {
                 exibirCarrinho();
                 break;
             case "3":
-                console.log ("Compra finalizada. Supermercados Abner agradece pela compra");
+                console.log ("COMPRA FINALIZADA. Supermercados Abner agradece pela compra");
                 return;
             case "4":
-                console.log ("Operação Finalizada com sucesso.");
+                console.log ("Já vai? Que pena. Esperamos nos ver em breve =]");
                 return;
             default:
                 console.log ("Opção inválida. Por favor, escolha uma opção entre '1' e '4'.");
